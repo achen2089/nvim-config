@@ -7,6 +7,17 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Markdown: keep highlighting/rendering, but no diagnostics or spell squiggles.
+-- Runs after LazyVim's wrap_spell autocmd, so the spell=false here wins.
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("user_markdown_quiet", { clear = true }),
+  pattern = { "markdown" },
+  callback = function(ev)
+    vim.diagnostic.enable(false, { bufnr = ev.buf })
+    vim.opt_local.spell = false
+  end,
+})
+
 local transparent_group = vim.api.nvim_create_augroup("user_transparent_background", { clear = true })
 
 local function apply_transparent_background()
