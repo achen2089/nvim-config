@@ -1,3 +1,6 @@
+> **Moved (2026-11-14).** This repo is archived. It now lives in the `nvim-config/` folder of the
+> private `achen2089/toolbench` monorepo, history included. Don't push here.
+
 # 💤 LazyVim Config
 
 My personal Neovim configuration based on [LazyVim](https://github.com/LazyVim/LazyVim).
